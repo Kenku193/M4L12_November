@@ -10,6 +10,7 @@ import ru.javarush.syrovatko.listener.HumanAuditListener;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "human")
@@ -27,7 +28,7 @@ public class Human {
     private boolean isAdult;
 
     @Embedded
-    public UserAddress adress;
+    private UserAddress address;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "gender_type")
@@ -37,6 +38,7 @@ public class Human {
     private Boolean isActive;
 
     @Transient
+   // @Column(name = "retirement_age")
     private Integer retirementAge;
 
     @Column(name = "birthday_date")
@@ -48,11 +50,11 @@ public class Human {
 
     @CreationTimestamp
     @Column(name = "created_date")
-    private LocalDate createDate;
+    private LocalDateTime createDate;
 
     @UpdateTimestamp
     @Column(name = "modified_date")
-    private LocalDate modifyDate;
+    private LocalDateTime modifyDate;
 
 
 }
